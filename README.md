@@ -89,6 +89,28 @@ The project is not submoduling yowsup now due to a lot of the modifications made
 <img src="https://i.imgur.com/poLpmAR.png" width="253px" height="450px">
 <img src="https://i.imgur.com/CRNKfHj.png" width="253px" height="450px">
 
+# Troubleshooting
+
+If you have this issue or a similar one:
+```
+SyntaxError: invalid syntax
+Whatsapp bot crashed with code 1. Respawning..
+Traceback (most recent call last):
+File "run.py", line 9, in 
+from app.layer import MacLayer
+```
+
+It is related to the Python version. It should be 3.5.0. Just follow the next steps:
+
+* install pyenv: `brew install pyenv`
+* install python 3.5.0: `pyenv install 3.5.0`
+* set this in your .bashrc or .zshrc eval "$(pyenv init -)"
+* Open a new terminal tab and set python global version: pyenv global 3.5.0
+* clean previous setup: sudo ./clean.sh
+* Re-run the setup script sudo ./setup.sh
+* Register your number and follow the readme instructions
+* Run the server sudo ./start.sh
+
 # Wiki
 [Read this](https://github.com/danielcardeenas/whatsapp-framework/wiki/Do-not-get-banned)
 

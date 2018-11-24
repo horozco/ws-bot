@@ -5,12 +5,14 @@ Signals this module listents to:
 1. When a message is received (signals.command_received)
 ==========================================================
 '''
-@signals.command_received.connect
+@signals.message_received.connect
 def handle(message):
     if message.command == "hi":
         hi(message)
     elif message.command == "help": 
         help(message)
+    elif message.command.lower() == "hola":
+        mac.send_message("Tu eres caga", message.conversation)
 
 '''
 Actual module code
